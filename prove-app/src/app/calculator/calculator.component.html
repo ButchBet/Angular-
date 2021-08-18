@@ -1,0 +1,24 @@
+<div class="container-lg">
+    <form>
+        <h1> {{ title }} </h1>
+        <div class="col-12">
+            <label class="col-12" for="operandA">Operand A</label>
+
+            <input [(ngModel)]="opA" class="form-control col-12 op opA" placeholder="Enter the operand A" type="number" name="operandA" id="operandA" required>
+        </div>
+
+        <div class="col-12">
+            <label class="col-12"  clas for="operandB">Operand B</label>
+
+            <input [(ngModel)]="opB" class="form-control col-12 op opB" placeholder="Enter the operand B" type="number" name="operandB" id="operandB" required>
+        </div>
+
+        
+        
+        <div class="col-12 footerCol">
+            <button (click)="addition()" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+
+    <p>Addition: {{ result }} </p>
+</div>
