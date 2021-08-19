@@ -17,3 +17,7 @@ form div:nth-child(3) button{
 .footerCol {
     margin: 2rem 0 2rem 0;
 }
+
+.col-hello {
+    padding: 0 15px;
+}

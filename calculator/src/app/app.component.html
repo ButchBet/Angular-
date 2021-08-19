@@ -1,0 +1,52 @@
+
+<div class="container-lg">
+  <h1>{{ title }}</h1>
+    
+    <hr>
+    
+  <div class="row row-cols-lg-3" id="mainContainer" #mainContainer>
+    <div class="col">
+      <img (click)="changeContainer(substraction)" src="https://i.ytimg.com/vi/THYIzpMOV-M/maxresdefault.jpg" alt="substractionComponent" #substraction >
+    </div>
+
+    <div class="col">
+      <img (click)="changeContainer(addition)" src="https://i.ytimg.com/vi/k5wC5krH8xo/maxresdefault.jpg" alt="additionComponent" #addition>
+    </div>
+
+    <div class="col">
+      <img (click)="changeContainer(multiplication)" src="https://cdn.shopify.com/s/files/1/2256/1797/products/Screen_Shot_2019-04-04_at_9.47.15_PM_1024x1024@2x.png?v=1554472617" alt="multiplicationComponent" #multiplication>
+    </div>
+
+    <div class="col">
+      <img (click)="changeContainer(division)" src="https://www.quickanddirtytips.com/sites/default/files/images/8269/division-sign.jpg" alt="divisionComponent" #division>
+    </div>
+
+    <div class="col">
+      <img (click)="changeContainer(random)" src="https://clipartstation.com/wp-content/uploads/2018/10/operations-clipart-3.jpg" alt="randomComponent" #random>
+    </div>
+
+  </div>
+</div>
+
+<div class="container-lg container2 hidden" id="nextContainer" #nextContainer>
+  <div class="row">
+    <div class="col-12 button-exit">
+      <button (click)="showAndHidde(nextContainer, mainContainer)" class="btn btn-danger">x</button>
+    </div>
+
+    <div class="col-12" id="changed">
+    <app-substraction (result)="catchResult($event)" class="page hidden" id="substractionComponent"></app-substraction>
+
+    <app-addition (result)="catchResult($event)" class="page hidden" id="additionComponent"></app-addition>
+
+    <app-multiplication (result)="catchResult($event)" class="page hidden" id="multiplicationComponent"></app-multiplication>
+
+    <app-division (result)="catchResult($event)" class="page hidden" id="divisionComponent"></app-division>
+    <div class="col-12">
+      Result: {{ result }}
+    </div>
+    </div>
+  </div>
+</div>
+
+

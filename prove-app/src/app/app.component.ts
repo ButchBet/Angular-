@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'prove-app';
+  love = false;
+  poison = true;
 }

@@ -1,0 +1,20 @@
+<form>
+    <h3>{{ title }}</h3>
+    <div class="col-12">
+        <label class="col-12" for="operandA">Operand A</label>
+
+        <input [(ngModel)]="opA" class="form-control col-12 op opA" placeholder="Enter the operand A" type="number" name="operandA" id="operandA" required>
+    </div>
+
+    <div class="col-12">
+        <label class="col-12"  clas for="operandB">Operand B</label>
+
+        <input [(ngModel)]="opB" class="form-control col-12 op opB" placeholder="Enter the operand B" type="number" name="operandB" id="operandB" required>
+    </div>
+
+    
+    
+    <div class="col-12 footerCol">
+        <button (click)="addition()" class="btn btn-primary">Calculate</button>
+    </div>
+</form>
