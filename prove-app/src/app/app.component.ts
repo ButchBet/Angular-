@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'prove-app';
+
+  fontSizePx = 36;
+
+  love = false;
+  
+  poison = true;
 }

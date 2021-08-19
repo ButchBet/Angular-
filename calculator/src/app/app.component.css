@@ -1,0 +1,54 @@
+.container-lg {
+    margin-top: 1em;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.095);
+}
+
+h1 {
+    text-align: center;
+}
+.col {
+    margin-bottom: 1rem;
+}
+
+.col img {
+    cursor: pointer;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.419);
+    width: 350px;
+    height: 300px;
+}
+
+.col img:hover {
+    opacity: .8;
+}
+
+.container2 {
+    height: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.button-exit {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    padding-right: 0;
+}
+
+.button-exit  button {
+    border-radius: 0;
+}
+
+.col-12 {
+    padding: 0;
+}
+
+#nextContainer {
+    height: 19.5em;
+}
+
+#changed {
+    padding: 1em;
+}
