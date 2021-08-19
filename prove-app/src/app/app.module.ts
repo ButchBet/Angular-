@@ -7,7 +7,10 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { PeopleListComponent } from './people-list/people-list.component';
 import { ResultComponent } from './calculator/result/result.component';
 import { ObtainComponent } from './calculator/obtain/obtain.component';
+<<<<<<< HEAD
 import { SizerComponent } from './sizer/sizer.component';
+=======
+>>>>>>> 842bad682dd0da17ba0270fa526cd59ef278857d
 
 @NgModule({
   declarations: [
@@ -15,8 +18,12 @@ import { SizerComponent } from './sizer/sizer.component';
     CalculatorComponent,
     PeopleListComponent,
     ResultComponent,
+<<<<<<< HEAD
     ObtainComponent,
     SizerComponent
+=======
+    ObtainComponent
+>>>>>>> 842bad682dd0da17ba0270fa526cd59ef278857d
   ],
   imports: [
     BrowserModule,
