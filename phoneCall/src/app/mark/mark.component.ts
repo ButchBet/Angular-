@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-mark',
   templateUrl: './mark.component.html',
   styleUrls: ['./mark.component.css']
 })
-export class MarkComponent implements OnInit {
+export class MarkComponent extends AppComponent{
 
-  constructor() { }
+  contacts  = this.contact;
 
-  ngOnInit(): void {
+  showContacts() {
+    this.contact.forEach(element => {
+      console.log(element.name + " " + element.lastName + " " + element.phone + " " + element.email + " " + element.operator)
+    })
   }
 
 }

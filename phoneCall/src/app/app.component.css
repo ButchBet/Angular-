@@ -1,0 +1,317 @@
+* {
+    --primary-color: rgba(255, 255, 255, 0.029);
+    --secondary-color: rgba(254, 254, 254, 0.07);
+    /* --third-color: #8ac2ce; */
+    --third-color: #3646bd;
+    --fourth-color: rgb(131, 130, 130);
+}
+
+
+
+.appComponentHeaderElementIcons img  {
+    opacity: .8;
+}
+
+.home,
+.appComponentFooterElement {
+    cursor: pointer;
+}
+
+.home:active,
+.appComponentFooterElement:active {
+    transform: scale(.98);
+}
+
+.mainCamera,
+.nextCamera, 
+.flashLight, 
+.mainCameraLent,
+.subSound,
+.circle,
+.sound {
+    border-radius: 100%;
+}
+
+.container, 
+.subContainer, 
+.subSub1,
+.mainCamera,
+.subSub3,
+.appComponentFooter,
+.center,
+.power
+.appComponentHeaderElementIcons,
+.appComponentHeader {
+    display: flex;
+}
+
+.container,
+.subSub1,
+.mainCamera,
+.power {
+    flex-flow: column wrap;
+}
+
+.mainCamera,
+.appComponentFooter,
+.center,
+.appComponentHeader {
+    flex-flow: row wrap;
+}
+
+.container, 
+.mainCamera,
+.appComponentFooter,
+.center {
+    justify-content: center;
+    align-content: center;
+}
+
+.nextCamera,
+.flashLight,
+.subSub3,
+.circle,
+.appComponentFooter,
+.subSound,
+.home {
+    position: relative;
+}
+
+.headerFeatere,
+.footerFeature
+{
+    background-color: var(--primary-color);
+}
+
+.mainCameraLent,
+.subSub2 {
+    background-color: var(--secondary-color);
+}
+
+.circle,
+.appComponentFooterElement {
+    background-color: var(--fourth-color);
+}
+
+.container {
+    width: 256px;
+    height: 528px;
+    border-radius: 32px;
+    padding: 0;
+}
+
+.subContainer {
+    flex-flow: column;
+    width: 98.7%;
+    height: 99%;
+}
+
+.sub {
+    width: 100%;
+    border-radius: 0;
+    background-color: black;
+}
+
+.sub1 {
+    border-radius: 32px 32px 0 0;
+    height: 5%;
+}
+
+.sub2 {
+    height: 86%;
+}
+
+.sub3 {
+    border-radius: 0 0 32px 32px;
+    height: 9%;
+}
+
+.subSub1 {
+    margin-left: .3em;
+    gap: 1em;
+    width: 58%;
+    height: 65%;
+}
+
+.mainCamera {
+    width: 7%;
+    height: 50%;
+    margin-right: .5em;
+}
+
+.mainCameraLent {
+    width: 40%;
+    height: 50%;
+}
+
+.sound {
+    width: 39%;
+    height: 20%;
+}
+
+.nextCamera {
+    width: 6%;
+    height: 50%;
+}
+
+.flashLight {
+    width: 5%;
+    left: -12px;
+    height: 40%;
+}
+
+.subSub2 {
+    width: 94%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.subSub3 {
+    /* display: flex;
+    align-self: flex-start; */
+    border-radius: 0 0 0 32px;
+    top: 7px;
+    left: -20%;
+    width: 60%;
+    height: 65%;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.subSound {
+    width: 5%;
+    height: 30%;
+    left: 3.5rem;
+    top: 3px;
+}
+
+.home {
+    left: 3px;
+    width: 35%;
+    height: 50%;
+    border-radius: 100px;
+    background-color: inherit;
+    box-shadow: .5px .3px 1px 1px var(--fourth-color);
+}
+
+.power {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    flex-wrap: nowrap;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.appComponentFooter {
+    gap: 2em;
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+    height: 6%;
+}
+
+.appComponentFooterElement{
+    width: 5%;
+    height: 40%;
+    background-color: var(--fourth-color);
+}
+
+.appComponentMidel {
+    height: 80%;
+}
+
+.back {
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    border-radius: 2px;
+
+}
+
+
+.center {
+    background-color: inherit;
+    border: 1px solid var(--fourth-color);
+    border-radius: 100%;
+}
+
+.circle {
+    top: .2px;
+    width: 72%;
+    height: 80%;
+}
+
+.font {
+    border-radius: 1px;
+}
+
+.appComponentHeader {
+    width: 100% !important;
+    border-radius: 5px 5px 0 0;
+    justify-content: space-between;
+    align-content: center;
+    height: 4%;
+    gap: 6em;
+}
+
+
+.appComponentHeaderElement p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--fourth-color);
+    font-weight: 500;
+    position: relative;
+    bottom: 1.3px;
+}
+
+.appComponentHeaderElementHour {
+    margin-left: 2px;
+}
+
+.appComponentHeader > *{
+    height: 70%;
+}
+
+.appComponentHeaderElementIcons {
+    flex-flow: wrap nowrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-right: 11px;
+    width: 40%;
+}
+
+.appComponentMidel {
+    height: 90%;
+}
+
+.wifi,
+.signal2 {
+    margin-right: 9px;
+}
+
+.signal1 {
+    margin-right: 4px;
+}
+
+.appComponentHeaderElementIcons img {
+    height: 100%;
+}
+
+.appComponentHeaderElementIcons p {
+    position: relative;
+    bottom: 1px;
+}
+
+.home {
+    
+}
+
+
+@media screen and (orientation: landscape ) {
+    .mainContainer {
+        position: absolute;
+        left: calc(50% - 128px);
+        top: 5%;
+    }
+}

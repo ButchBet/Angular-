@@ -1,1 +1,64 @@
-{{ title }}
+<div class="container mainContainer" style="background-color: var(--third-color);">
+    <div class="container subContainer">
+        <div class="container sub sub1">
+            <div class="container subSub1">
+                <!-- Here we have the header: camera, sound, flasg etc -->
+                <div class="headerFeatere mainCamera">
+                    <div class="mainCameraLent"></div>
+                </div>
+
+                <div class="headerFeatere sound"></div>
+
+                <div class="headerFeatere nextCamera"></div>
+
+                <div class="headerFeatere flashLight"></div>
+            </div>
+        </div>
+
+        <div class="container sub sub2">
+            <div class="conta subSub2">
+                <div #poweOn1 class="power poweOn1 hidden" style="background-color: white;">
+                    <div class="appComponentHeader">
+                        <div class="appComponentHeaderElement appComponentHeaderElementHour">
+                            <p>{{ hour }}:{{ minutes }}</p>
+                        </div>
+
+                        <div class="appComponentHeaderElement appComponentHeaderElementIcons">
+                            <img src="../assets/wifi-signal.svg" alt="wifi" class="wifi">
+
+                            <img src="../assets/high-signal.svg" alt="signal1" class="signal1">
+
+                            <img src="../assets/high-signal.svg" alt="signal2" class="signal2">
+
+                            <img src="../assets/battery.svg" alt="battery" class="battery">
+
+                            <p>{{ batteryP }}%</p>
+                        </div>
+                    </div>
+                    <!-- Area to positionate the main, mark, choose and call component -->
+                    <div class="appComponentMidel"></div>
+                    <!-- <app-mark></app-mark> -->
+                    <div class="appComponentFooter">
+                        <div class="appComponentFooterElement back"></div>
+
+                        <div class="appComponentFooterElement center">
+                            <div class="circle"></div>
+                        </div>
+
+                        <div class="appComponentFooterElement font"></div>
+                    </div>
+                </div>
+
+                <div #poweOn2 class="power poweOn2 hidden" style="background-color: white;"></div>
+            </div>
+        </div>
+
+        <div class="container sub sub3">
+            <div class="subSub3">
+                <div class="footerFeature subSound"></div>
+
+                <div (click)="changeBackground(poweOn1, poweOn2);" class="footerFeature home"></div>
+            </div>
+        </div>
+    </div>
+</div>
