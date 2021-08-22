@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Contact } from './contact';
+import { CallRegist } from './callRegist';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,9 @@ import { Contact } from './contact';
 })
 export class AppComponent {
 
-  title = 'alejandro';
+  mainRegist = false;
 
-  
+  title = 'alejandro';
 
   phoneStatus = false;
 
@@ -29,9 +30,7 @@ export class AppComponent {
   
   timer() {
     const date = new Date();
-
-    console.log(date);
-
+    
     this.hour = this.keepHours(date.getHours());
 
     this.minutes = this.keepMinutes(date.getMinutes()),
@@ -48,7 +47,10 @@ export class AppComponent {
   keepHours(date:number) {
     if(date > 12) {
       return date - 12;
-    } 
+    }
+    // } else if (date === 0) {
+    //   return date + 1;
+    // } 
 
     return date;
   }
@@ -72,6 +74,17 @@ export class AppComponent {
                               new Contact("Eduar", "Ortiz", 3145293894, "Claro", "gaia.ortiz@utp.edu.co")];
 
 
+  // Save the call regist
+  // Status reffer to declinedRemote:0, declinenRemote: 1, catchedLocal: 2, 
+  // catchedRemote: 3
+  public callRegist: CallRegist[] = [new CallRegist(3118818838, "Thu", "Claro", "Colombia", 0),
+                                     new CallRegist(3015794422, "Mon", "Tigo", "Colombia", 2), 
+                                     new CallRegist(3015797422, "Thu", "Movistar", "Colombia", 1),
+                                     new CallRegist(3226115798, "Fri", "Claro", "Colombia", 3),
+                                     new CallRegist(3178516045, "Mon", "Claro", "Colombia", 0),
+                                     new CallRegist(3145293894, "Whd", "Claro", "Claro", 0),
+                                     new CallRegist(3225370674, "Thr", "Claro", "Colombia", 3)];
+
   // Control the background power status
   changeBackground(elem1: HTMLDivElement, elem2: HTMLDivElement) {
     this.timer();
@@ -81,6 +94,8 @@ export class AppComponent {
       alert("Please whait the is turning on");
     } else { // Here begins the code 
     if(this.phoneStatus === false) {
+      this.mainRegist = true;
+
       elem1.classList.remove("hidden");
   
       // setTimeout(() => {
@@ -95,7 +110,7 @@ export class AppComponent {
     
       this.phoneStatus = true;
 
-     } else {  
+     } else {
        elem2.classList.add("hidden");
   
   
