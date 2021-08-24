@@ -8,8 +8,12 @@ import { CallRegist } from './callRegist';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+  // mainBack
+  backComponent: Boolean = false;
 
-  mainRegist = false;
+  // statusShow
+  mainRegist: Boolean = false;
 
   title = 'alejandro';
 
@@ -120,5 +124,22 @@ export class AppComponent {
      }
     }
    }
-  
+
+   // Go back to the main component interface
+   goBack() {
+    this.backComponent = true;
+  }
+
+  // Main backComponent change to false 
+  backCatch(element: Boolean) {
+    alert("Hello World");
+    this.backComponent = false;
+  }
+
+  // Main mainRegist change to false
+  // showCatch(element: Boolean) {
+  //   console.log("Hello form mainregist catch")
+  //   this.mainRegist = false;
+  //   console.log(this.mainRegist)
+  // }
 }

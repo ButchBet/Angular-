@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+
+/* * {
+    --primary-color: rgba(255, 255, 255, 0.029);
+    --secondary-color: rgba(254, 254, 254, 0.07);
+    --third-color: #3646bd;
+    --fourth-color: rgb(131, 130, 130);
+    --fifth-color: rgb(42, 116, 215);
+    --sixth-color: rgb(32, 33, 37);
+} */
+
+.containerCont,
+.inputContent,
+.placeOptions,
+#inputPlace,
+.options,
+.callContent {
+    display: flex;
+}
+
+.numbersContent {
+    display: grid;
+}
+
+.placeOptions img,
+#deleteNumbers,
+.inputContent {
+    position: relative;
+}
+
+.options {
+    position: absolute;
+}
+
+.containerCont {
+    flex-flow: column nowrap;
+    height: 61%;
+}
+
+.inputContent {
+    flex-flow: row wrap;
+    height: 15%;
+    border-bottom: .7px solid rgba(128, 128, 128, 0.679);
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.inputContent > *{
+    height: 50%;
+}
+
+.placeOptions {
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    width: 7%;
+}
+
+.placeOptions img{ 
+    left: 13px;
+    opacity: .8;
+}
+
+.options {
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    width: 7.7em;
+    left: 0;
+    top: 100%;
+    height: 5em;
+    box-shadow: 1px 1px 5px var(--fourth-color);
+    background-color: white;
+}
+
+.options  > *{
+    font-size: 14px;
+    margin-bottom: 13px;
+    margin-left: 10px;
+}
+
+.options  > *,
+img,
+.numbersContent {
+    cursor: pointer;
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+#inputPlace {
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 70%;
+    height: 90%;
+    text-align: center;
+    align-self: center;
+    margin: 0;
+}
+
+#inputPlace:focus {
+    outline: 0;
+}
+
+#deleteNumbers {
+    width: 7%;
+    right: 13px;
+}
+
+.asterisk,
+.hash,
+#inputPlace  {
+    color: var(--fourth-color);
+}
+
+.numbersContent,
+#inputPlace {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.numbersContent > *:active,
+#verticalOption:active,
+#deleteNumbers div:active,
+.callContent img:active {
+    transform: scale(.9);
+}
+
+
+.numbersContent {
+    height: 65%;
+    grid-template-columns: repeat(3, 10%);
+    grid-template-rows: repeat(4, 13%);
+    align-content: center;
+    justify-content: center;
+    color: var(--fifth-color);
+    gap: 20px 40px;
+}
+
+.callContent {
+    height: 20%;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.callContent img {
+    width: 16%;
+    height: 75%;
+}
+.hidden {
+    display: none;
+}

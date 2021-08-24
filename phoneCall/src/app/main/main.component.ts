@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contact } from '../contact'
 import { AppComponent } from '../app.component';
 
@@ -10,16 +10,48 @@ import { AppComponent } from '../app.component';
 
 export class MainComponent extends AppComponent{
 
+  markDisplay = false;
+
   color: string[] = ["red", "yellow", "blue", "gold", "pink", "grey", "orange"];
 
+  // backComponent
+  @Input() mainBack: Boolean;
+
+  // mainRegist
   @Input() statusShow: Boolean;
+
+  // backCatch($event)
+  // @Output() appBack = new EventEmitter<Boolean>();
+
+  // showCatch($event)
+  // @Output() statusShowFalse = new EventEmitter<Boolean>();
  
-  prove(event: HTMLImageElement) {
-    // alert("Hello World")
+  // Change to the number marking funtionality
+  toMarkDisplay(event: HTMLImageElement) {
+    let searching = document.getElementById("searching"),
+
+    keyPad = document.getElementById("keyPad"),
+
+    options = document.getElementById("options"),
+
+    contacts = document.getElementById("contacts");
+
+    // Make visible the markComponent
+    this.markDisplay = true;
+
+    // Hidde the searching, keyPad anmd options divisions
+    searching?.classList.add("hidden"), 
+
+    keyPad?.classList.add("hidden"),
+
+    options?.classList.add("hidden");
+
+    // Make contacts container shorter
+    contacts?.classList.add("changeHeignt");
   }
 
   showRegists() {
-    this.statusShow = false;
+    // this.statusShow = false;  /this line of code genereate the error NG0100
 
     // Generate the regist history
     this.callRegist.forEach(element => {
@@ -164,7 +196,18 @@ export class MainComponent extends AppComponent{
       contact.appendChild(phoneContent);
 
       contacts.appendChild(contact);
+
+      // Like  this.statusShow = false but with out the NG0100 error
+      
+      this.statusShow = false;
+      // this.statusShowFalse.emit(false);
       });
   }
 
+  // Check chage estatus and do the neccessary changes
+  checkChangeStatus() {
+    alert("Hello World")
+    this.mainBack = false;
+    // this.appBack.emit(false);
+  }
 }

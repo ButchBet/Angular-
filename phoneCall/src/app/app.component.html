@@ -37,7 +37,13 @@
                     </div>
                     <!-- Area to positionate the main, mark, choose and call component -->
                     <div class="appComponentMidel">
-                        <app-main class=""[statusShow]="mainRegist"></app-main>
+                        <app-main class=""
+                        [statusShow]="mainRegist"
+                        id="appMain"
+                        [mainBack]="backComponent"> 
+                        (appBack)="backCatch($event)"
+                        <!-- (statusShowFalse)="showCatch($event)" -->
+                    </app-main>
                         
                         <!-- <app-mark></app-mark> -->
 
@@ -47,7 +53,7 @@
                     </div>
                     
                     <div class="appComponentFooter">
-                        <div class="appComponentFooterElement back"></div>
+                        <div class="appComponentFooterElement back" (click)="goBack()"></div>
 
                         <div class="appComponentFooterElement center">
                             <div class="circle"></div>

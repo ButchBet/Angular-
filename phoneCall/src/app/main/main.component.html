@@ -1,4 +1,4 @@
-<div class="searching">
+<div class="searching" id="searching">
     <img src="https://image.flaticon.com/icons/png/512/622/622669.png" alt="lupe" id="lupe" >
 
     <input type="text" placeholder="Search contacts & places" id="searchInput" #searchInput>
@@ -9,9 +9,8 @@
 
 </div>
 
-<!-- ------------------------------------------- -->
-
-<div class="statusQI" *ngIf="statusShow" id="statusQI">
+<!-- *NgIf conditional fot the regist showing generation -->
+<div class="status1" *ngIf="statusShow" id="status1">
     {{ showRegists() }}
 </div>
 
@@ -38,16 +37,16 @@
         </div>
     </div> -->
 </div>
-<!-- ------------------------------------------- -->
 
 
-<app-mark class="hidden"></app-mark>
 
-<div class="keyPad">
-    <img (click)="prove(keyPad)" src="https://image.flaticon.com/icons/png/512/61/61026.png" alt="keyPad" #keyPad>
+<app-mark *ngIf="markDisplay"></app-mark>
+
+<div class="keyPad" id="keyPad">
+    <img (click)="toMarkDisplay(keyPad)" src="https://image.flaticon.com/icons/png/512/61/61026.png" alt="keyPad" #keyPad>
 </div>
 
-<div class="options">
+<div class="options" id="options">
     <div class="favorites">
         <img src="https://image.flaticon.com/icons/png/512/1828/1828970.png" alt="favorite" id="favorite">
 
@@ -66,4 +65,10 @@
 
         <span>Contacs</span>
     </div>
+</div>
+
+
+<!-- *NgIf for the go back event interpretation -->
+<div class="status2" *ngIf="mainBack">
+    {{ checkChangeStatus() }}
 </div>

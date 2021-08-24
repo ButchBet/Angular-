@@ -1,1 +1,48 @@
-<button (click)="showContacts()">Show</button>
+<div class="containerCont">
+    <div class="inputContent">
+        <div class="placeOptions">
+            <img (click)="showOption()" class="" src="https://image.flaticon.com/icons/png/512/1828/1828814.png" alt="Vertical option" id="verticalOption" #verticalOption>
+
+            <div class="options hidden" id="options">
+                <p>Add 2-sec pause</p>
+                
+                <p>Add wait</p>
+            </div>
+        </div>
+
+        <p id="inputPlace" #inputPlace></p>
+
+        <img (click)="removeNumber(inputPlace)" src="https://image.flaticon.com/icons/png/512/2087/2087825.png" alt="deleteNumbers" id="deleteNumbers" #deleteNumbers>
+    </div>
+
+    <div class="numbersContent">
+        <div (click)="detectNumber(one, inputPlace)" class="one" #one>1</div>
+        <!-- <img id="voiceRecord" src="" alt="Voice record image" #voiceRecord> -->
+        
+        <div (click)="detectNumber(two, inputPlace)" class="two" #two>2</div>
+
+        <div (click)="detectNumber(three, inputPlace)" class="three" #three>3</div>
+
+        <div (click)="detectNumber(four, inputPlace)" class="four" #four>4</div>
+
+        <div (click)="detectNumber(five, inputPlace)" class="five" #five>5</div>
+
+        <div (click)="detectNumber(six, inputPlace)" class="six" #six>6</div>
+
+        <div (click)="detectNumber(seven, inputPlace)" class="seven" #seven>7</div>
+
+        <div (click)="detectNumber(eight, inputPlace)" class="eight" #eight>8</div>
+
+        <div (click)="detectNumber(nine, inputPlace)" class="nine" #nine>9</div>
+
+        <div (click)="detectNumber(asterisk, inputPlace)" class="asterisk" #asterisk>*</div>
+
+        <div (click)="detectNumber(zero, inputPlace)" class="zero" #zero>0</div>
+
+        <div (click)="detectNumber(hash, inputPlace)" class="hash" #hash>#</div>
+    </div>
+    
+    <div class="callContent">
+        <img (click)=calling(inputPlace) src="https://image.flaticon.com/icons/png/512/724/724664.png" alt="phone image" id="phone" #phone>
+    </div>
+</div>
