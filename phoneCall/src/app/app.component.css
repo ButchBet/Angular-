@@ -80,7 +80,8 @@
 .circle,
 .appComponentFooter,
 .subSound,
-.home {
+.home,
+.appComponentMidel {
     position: relative;
 }
 

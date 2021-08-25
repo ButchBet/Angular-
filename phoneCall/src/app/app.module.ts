@@ -6,6 +6,9 @@ import { MainComponent } from './main/main.component';
 import { MarkComponent } from './mark/mark.component';
 import { OperatorComponent } from './operator/operator.component';
 import { CallComponent } from './call/call.component';
+import { CallRegistService } from './callRegistService.service';
+import { ContactService } from './contactServeice.service';
+import { StatusService } from './statusService.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { CallComponent } from './call/call.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [CallRegistService,
+              ContactService,
+              StatusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

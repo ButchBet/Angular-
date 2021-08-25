@@ -1,6 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Contact } from '../contact'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Contact } from '../contact';
+import { CallRegist } from '../callRegist';
 import { AppComponent } from '../app.component';
+import { CallRegistService } from '../callRegistService.service';
+import { ContactService } from '../contactServeice.service';
 
 @Component({
   selector: 'app-main',
@@ -8,23 +11,33 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./main.component.css']
 })
 
-export class MainComponent extends AppComponent{
+export class MainComponent implements OnInit{
 
-  markDisplay = false;
+  callRegistData: CallRegist[] = [];
 
-  color: string[] = ["red", "yellow", "blue", "gold", "pink", "grey", "orange"];
+  contactData: Contact[] = [];
+  
+  markStatus = false;
+
+  callStatus = true;
+
+  colorIndex = 0;
+
+  color: string[] = ["#5d8aa8", "#efdecd", "#ffbf00", "#9966cc", "#cd9575", "#915c83", "#a52a2a"];
+
+  constructor(private callRegistService: CallRegistService, private contactService: ContactService){
+
+  }
+
+  ngOnInit(): void {
+    this.callRegistData = this.callRegistService.getCall();
+
+    this.contactData = this.contactService.getContact();
+  }
+
 
   // backComponent
-  @Input() mainBack: Boolean;
-
-  // mainRegist
-  @Input() statusShow: Boolean;
-
-  // backCatch($event)
-  // @Output() appBack = new EventEmitter<Boolean>();
-
-  // showCatch($event)
-  // @Output() statusShowFalse = new EventEmitter<Boolean>();
+  @Input() mainStatus: Boolean;
  
   // Change to the number marking funtionality
   toMarkDisplay(event: HTMLImageElement) {
@@ -37,7 +50,7 @@ export class MainComponent extends AppComponent{
     contacts = document.getElementById("contacts");
 
     // Make visible the markComponent
-    this.markDisplay = true;
+    this.markStatus = true;
 
     // Hidde the searching, keyPad anmd options divisions
     searching?.classList.add("hidden"), 
@@ -51,19 +64,12 @@ export class MainComponent extends AppComponent{
   }
 
   showRegists() {
-    // this.statusShow = false;  /this line of code genereate the error NG0100
-
     // Generate the regist history
-    this.callRegist.forEach(element => {
+    this.callRegistData.forEach(element => {
       // Check if the number is registred 
       let name: string = "";
-      
-      // Random number to specificate the backgorund to the subLeftContent division
-      const color = Math.floor(Math.random() * 7);
 
-
-
-      this.contact.forEach(value => {
+      this.contactData.forEach(value => {
         if(element.number === value.phone) {
           name = value.name;
         }
@@ -128,6 +134,15 @@ export class MainComponent extends AppComponent{
         left1.innerHTML = "O";
 
         span1.innerHTML = element.number.toString();
+      }
+      
+      left1.style.background = this.color[this.colorIndex];
+
+      // increment or become this.colorIndex to 0
+      if(this.colorIndex === 6) {
+        this.colorIndex = 0;
+      } else {
+        this.colorIndex++;
       }
 
       span1.classList.add("span1")
@@ -199,7 +214,7 @@ export class MainComponent extends AppComponent{
 
       // Like  this.statusShow = false but with out the NG0100 error
       
-      this.statusShow = false;
+      this.mainStatus = false;
       // this.statusShowFalse.emit(false);
       });
   }
@@ -207,7 +222,6 @@ export class MainComponent extends AppComponent{
   // Check chage estatus and do the neccessary changes
   checkChangeStatus() {
     alert("Hello World")
-    this.mainBack = false;
     // this.appBack.emit(false);
   }
 }

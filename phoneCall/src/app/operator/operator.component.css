@@ -1,0 +1,56 @@
+.containerCont {
+    position: absolute;
+    color: rgb(206, 207, 211);
+}
+
+.containerCont,
+.sim,
+.operator,
+img {
+    display: flex;
+}
+
+.containerCont {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+    height: 35%;
+    background-color: rgb(53, 54, 58);
+    top: 32.5%;
+    left: 10%;
+    gap: 1%;
+    border-radius: 5px;
+}
+
+p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.sim {
+    flex-flow: row wrap;
+    width: 90%;
+    height: 35%;
+    gap: 6%;
+    cursor: pointer;
+}
+
+.sim:active {
+    transform: scale(.99);
+}
+
+img {
+    align-self: center;
+    width: 15%;
+    height: 60%;
+}
+
+.operator {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+    height: 100%;
+    width: 67%;
+}

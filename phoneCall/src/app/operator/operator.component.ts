@@ -12,4 +12,10 @@ export class OperatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  operator = "Claro"
+
+  call(){
+    alert("You want to call");
+  }
+
 }

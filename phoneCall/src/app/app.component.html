@@ -17,7 +17,7 @@
 
         <div class="container sub sub2">
             <div class="conta subSub2">
-                <div #poweOn1 class="power poweOn1 hidden" style="background-color: white;">
+                <div #poweOn1 class="power poweOn1" style="background-color: white;">
                     <div class="appComponentHeader">
                         <div class="appComponentHeaderElement appComponentHeaderElementHour">
                             <p>{{ hour }}:{{ minutes }}</p>
@@ -38,18 +38,9 @@
                     <!-- Area to positionate the main, mark, choose and call component -->
                     <div class="appComponentMidel">
                         <app-main class=""
-                        [statusShow]="mainRegist"
+                        [mainStatus]="mainStatus"
                         id="appMain"
-                        [mainBack]="backComponent"> 
-                        (appBack)="backCatch($event)"
-                        <!-- (statusShowFalse)="showCatch($event)" -->
-                    </app-main>
-                        
-                        <!-- <app-mark></app-mark> -->
-
-                        <!-- <app-operator></app-operator> -->
-
-                        <!-- <app-call></app-call> -->
+                        ></app-main>
                     </div>
                     
                     <div class="appComponentFooter">
@@ -62,8 +53,6 @@
                         <div class="appComponentFooterElement font"></div>
                     </div>
                 </div>
-
-                <div #poweOn2 class="power poweOn2 hidden" style="background-color: white;"></div>
             </div>
         </div>
 
@@ -71,7 +60,7 @@
             <div class="subSub3">
                 <div class="footerFeature subSound"></div>
 
-                <div (click)="changeBackground(poweOn1, poweOn2);" class="footerFeature home"></div>
+                <div (click)="changeBackground(poweOn1);" class="footerFeature home"></div>
             </div>
         </div>
     </div>

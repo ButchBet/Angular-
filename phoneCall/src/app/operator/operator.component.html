@@ -1,1 +1,18 @@
-<p>operator works!</p>
+<div class="mainContainer">
+    <div class="containerCont">
+        <p>Choose a SIM for this call</p>
+        <div (click)="call()" class="sim firstSim">
+            <img src="https://image.flaticon.com/icons/png/512/523/523132.png" alt="sim image">
+    
+            <div class="operator">{{ operator }}</div>
+        </div>
+    
+        <div (click)="call()" class="sim secondSim">
+            <img src="https://image.flaticon.com/icons/png/512/523/523132.png" alt="sim image">
+    
+            <div class="operator">{{ operator }}</div>
+        </div>
+    </div>
+</div>
+
+<!-- Remember maincontainer is absolute, subMainContainer is relative -->

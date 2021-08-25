@@ -10,7 +10,7 @@
 </div>
 
 <!-- *NgIf conditional fot the regist showing generation -->
-<div class="status1" *ngIf="statusShow" id="status1">
+<div class="status1" *ngIf="mainStatus" id="status1">
     {{ showRegists() }}
 </div>
 
@@ -39,8 +39,7 @@
 </div>
 
 
-
-<app-mark *ngIf="markDisplay"></app-mark>
+<app-mark *ngIf="markStatus"></app-mark>
 
 <div class="keyPad" id="keyPad">
     <img (click)="toMarkDisplay(keyPad)" src="https://image.flaticon.com/icons/png/512/61/61026.png" alt="keyPad" #keyPad>
@@ -67,8 +66,9 @@
     </div>
 </div>
 
+<app-operator *ngIf="callStatus"></app-operator>
 
 <!-- *NgIf for the go back event interpretation -->
-<div class="status2" *ngIf="mainBack">
+<!-- <div class="status2" *ngIf="mainBack">
     {{ checkChangeStatus() }}
-</div>
+</div> -->

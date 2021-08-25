@@ -147,7 +147,7 @@ span {
     margin-left: 2px;
     background-color: yellow;
     width: 35%;
-    height: 75%;
+    height: 70%;
     border-radius: 100%;
     font-size: 18px;
     font-weight: bolder;
@@ -258,4 +258,8 @@ span {
 
 .changeHeignt {
     height: 40%;
+}
+
+.opac {
+    opacity: .7;
 }
