@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-call',
@@ -12,4 +12,9 @@ export class CallComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Input() callStatus: Boolean;
+
+  @Output() callEvent = new EventEmitter<Boolean>();
+
+  
 }

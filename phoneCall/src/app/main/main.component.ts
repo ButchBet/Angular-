@@ -19,11 +19,15 @@ export class MainComponent implements OnInit{
   
   markStatus = false;
 
-  callStatus = true;
+  operatorStatus = false;
+
+  markHidden = false;
 
   colorIndex = 0;
 
   color: string[] = ["#5d8aa8", "#efdecd", "#ffbf00", "#9966cc", "#cd9575", "#915c83", "#a52a2a"];
+  
+  @Output() mainEvent = new EventEmitter<Boolean>();
 
   constructor(private callRegistService: CallRegistService, private contactService: ContactService){
 
@@ -33,37 +37,7 @@ export class MainComponent implements OnInit{
     this.callRegistData = this.callRegistService.getCall();
 
     this.contactData = this.contactService.getContact();
-  }
 
-
-  // backComponent
-  @Input() mainStatus: Boolean;
- 
-  // Change to the number marking funtionality
-  toMarkDisplay(event: HTMLImageElement) {
-    let searching = document.getElementById("searching"),
-
-    keyPad = document.getElementById("keyPad"),
-
-    options = document.getElementById("options"),
-
-    contacts = document.getElementById("contacts");
-
-    // Make visible the markComponent
-    this.markStatus = true;
-
-    // Hidde the searching, keyPad anmd options divisions
-    searching?.classList.add("hidden"), 
-
-    keyPad?.classList.add("hidden"),
-
-    options?.classList.add("hidden");
-
-    // Make contacts container shorter
-    contacts?.classList.add("changeHeignt");
-  }
-
-  showRegists() {
     // Generate the regist history
     this.callRegistData.forEach(element => {
       // Check if the number is registred 
@@ -212,16 +186,96 @@ export class MainComponent implements OnInit{
 
       contacts.appendChild(contact);
 
-      // Like  this.statusShow = false but with out the NG0100 error
-      
-      this.mainStatus = false;
       // this.statusShowFalse.emit(false);
       });
   }
+ 
+  // Change to the number marking component
+  markDisplay(event: HTMLImageElement) {
+    // Check that the mark componnent has been closes 
+    if(this.markHidden) {
+      // Hide the operator component
+      this.operatorStatus = false;
+    }
+    let searching = document.getElementById("searching"),
 
-  // Check chage estatus and do the neccessary changes
-  checkChangeStatus() {
-    alert("Hello World")
-    // this.appBack.emit(false);
+    keyPad = document.getElementById("keyPad"),
+
+    mainOptions = document.getElementById("mainOptions"),
+
+    contacts = document.getElementById("contacts");
+
+    // Make visible the markComponent
+    this.markStatus = true;
+
+    // Hidde the searching, keyPad anmd options divisions
+    searching?.classList.add("hidden"), 
+
+    keyPad?.classList.add("hidden"),
+
+    mainOptions?.classList.add("hidden");
+
+    // Make contacts container shorter
+    contacts?.classList.add("changeHeignt");
+  }
+
+  markEventCatch(value: Boolean) {
+    // Make call component visible
+    this.operatorStatus = true;
+
+    const searching = document.getElementById("searching"),
+
+    contacts = document.getElementById("contacts"),
+
+    // markComponent = document.getElementById("markComponent"),
+
+    keyPad = document.getElementById("keyPad"),
+
+    mainOptions = document.getElementById("mainOptions");
+
+    // Make visible searching, keypad and options divisions
+    searching?.classList.remove("hidden"),
+
+    keyPad?.classList.remove("hidden"),
+
+    mainOptions?.classList.remove("hidden");
+
+    // Make opacer the searching, constacts and opstions divisions
+    searching?.classList.add("opac"),
+
+    contacts?.classList.add("opac"),
+
+    mainOptions?.classList.add("opac2");
+
+    // Remove the changeHeignt class from contacts 
+    contacts?.classList.remove("changeHeignt");
+
+    // Make the markHidden variable true, to when user click again the keyPad
+    this.markHidden = true;
+
+    // Hidde the mark component 
+    this.markStatus = false;
+  }
+
+  callEventCatch(value: Boolean) {
+    // Remove the opac property from searching, contacts and mainOptions
+    const searching = document.getElementById("searching"),
+
+    contacts = document.getElementById("contacts"),
+
+    keyPad = document.getElementById("keyPad"),
+
+    mainOptions = document.getElementById("mainOptions");
+
+    searching?.classList.remove("opac"),
+
+    keyPad?.classList.remove("opac"),
+
+    mainOptions?.classList.remove("opac");
+
+    contacts?.classList.remove("opac")
+
+    // Emit event to can change to the call component 
+    this.mainEvent.emit(true);
   }
 }

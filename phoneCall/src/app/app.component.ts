@@ -14,6 +14,8 @@ export class AppComponent {
 
   phoneStatus = false;
   
+  callStatus = false;
+  
   batteryP = 12;
 
   // control the phone clock
@@ -89,5 +91,15 @@ export class AppComponent {
    // Go back to the main component interface
    goBack() {
     alert("You are trying to go back")
+  }
+
+  mainEventCatch(value: Boolean){
+    this.mainStatus = false;
+
+    this.callStatus = true;
+  }
+
+  callEventCatch(value: Boolean) {
+    console.log("Hello World");
   }
 }

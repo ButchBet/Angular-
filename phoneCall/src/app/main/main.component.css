@@ -10,10 +10,9 @@
 
 .searching, 
 .contacts,
-.options,
+.mainOptions,
 .keyPad,
-.options,
-.options > *,
+.mainOptions > *,
 .contact,
 .leftContent,
 .phoneContent,
@@ -29,7 +28,7 @@
 
 .searching, 
 .keyPad,
-.options,
+.mainOptions,
 .contact,
 .leftContent,
 .status,
@@ -41,7 +40,7 @@
 
 .searching,
 .keyPad,
-.options,
+.mainOptions,
 .left1,
 .left2,
 .statusIcon,
@@ -53,11 +52,11 @@
 }
 
 .searching img,
-.options img {
+.mainOptions img {
     opacity: .77;
 }
 
-.options img,
+.mainOptions img,
 .searching img,
 .keyPad,
 .phoneContent img
@@ -211,12 +210,12 @@ span {
     height: 60%;
 }
 
-.options {
+.mainOptions {
     height: 10%;
     justify-content: space-evenly;
 }
 
-.options > * {
+.mainOptions > * {
     flex-flow: column nowrap;
     justify-content: center;
     align-content: center;
@@ -226,13 +225,13 @@ span {
     font-size: 11px;
 }
 
-.options > * img,
-.options > * svg {
+.mainOptions > * img,
+.mainOptions > * svg {
     width: 30%;
     height: 40%;
 }
 
-.options span {
+.mainOptions span {
     margin-left:5px;
 }
 
@@ -261,5 +260,5 @@ span {
 }
 
 .opac {
-    opacity: .7;
+    opacity: .8;
 }
