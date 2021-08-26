@@ -5,7 +5,7 @@ export class CallRegistService {
 
     // Save the call regist
     // Status reffer to declinedRemote:0, declinenRemote: 1, catchedLocal: 2, 
-    // catchedRemote: 3
+    // catchedRemote: 3, -1 is static value
     private callRegist: CallRegist[] = [new CallRegist(3118818838, "Thu", "Claro", "Colombia", 0),
     new CallRegist(3015794422, "Mon", "Tigo", "Colombia", 2), 
     new CallRegist(3015797422, "Thu", "Movistar", "Colombia", 1),
@@ -19,6 +19,6 @@ export class CallRegistService {
     }
 
     setCall(call: CallRegist) {
-        this.callRegist.push(call);
+        this.callRegist.unshift(call);
     }
 }

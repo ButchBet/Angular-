@@ -9,6 +9,7 @@ import { CallComponent } from './call/call.component';
 import { CallRegistService } from './callRegistService.service';
 import { ContactService } from './contactServeice.service';
 import { StatusService } from './statusService.service';
+import { MovilDataService } from './movilDataService.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StatusService } from './statusService.service';
   ],
   providers: [CallRegistService,
               ContactService,
-              StatusService],
+              StatusService,
+            MovilDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

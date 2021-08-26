@@ -9,11 +9,6 @@
 
 </div>
 
-<!-- *NgIf conditional fot the regist showing generation -->
-<div class="status1" *ngIf="mainStatus" id="status1">
-    {{ showRegists() }}
-</div>
-
 <div class="contacts" id="contacts">
     <!-- <div class="contact">
         <div class="leftContent">
@@ -39,13 +34,15 @@
 </div>
 
 
-<app-mark *ngIf="markStatus"></app-mark>
+<app-mark *ngIf="markStatus"
+    (markEvent)="markEventCatch($event)"
+    id="markComponent"></app-mark>
 
 <div class="keyPad" id="keyPad">
-    <img (click)="toMarkDisplay(keyPad)" src="https://image.flaticon.com/icons/png/512/61/61026.png" alt="keyPad" #keyPad>
+    <img (click)="markDisplay(keyPad)" src="https://image.flaticon.com/icons/png/512/61/61026.png" alt="keyPad" #keyPad>
 </div>
 
-<div class="options" id="options">
+<div class="mainOptions" id="mainOptions">
     <div class="favorites">
         <img src="https://image.flaticon.com/icons/png/512/1828/1828970.png" alt="favorite" id="favorite">
 
@@ -66,7 +63,8 @@
     </div>
 </div>
 
-<app-operator *ngIf="callStatus"></app-operator>
+<app-operator *ngIf="operatorStatus"
+(calling)="callEventCatch($event)"></app-operator>
 
 <!-- *NgIf for the go back event interpretation -->
 <!-- <div class="status2" *ngIf="mainBack">

@@ -1,16 +1,16 @@
 <div class="mainContainer">
     <div class="containerCont">
         <p>Choose a SIM for this call</p>
-        <div (click)="call()" class="sim firstSim">
+        <div (click)="call(sim1)" class="sim firstSim">
             <img src="https://image.flaticon.com/icons/png/512/523/523132.png" alt="sim image">
     
-            <div class="operator">{{ operator }}</div>
+            <div class="operator" #sim1>{{ operator1 }}</div>
         </div>
     
-        <div (click)="call()" class="sim secondSim">
+        <div (click)="call(sim2)" class="sim secondSim">
             <img src="https://image.flaticon.com/icons/png/512/523/523132.png" alt="sim image">
     
-            <div class="operator">{{ operator }}</div>
+            <div class="operator" #sim2>{{ operator2 }}</div>
         </div>
     </div>
 </div>

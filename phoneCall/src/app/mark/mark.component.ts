@@ -1,14 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CallRegistService } from '../callRegistService.service';
+import { CallRegist } from '../callRegist';
+import { parse } from 'cookie';
 
 @Component({
   selector: 'app-mark',
   templateUrl: './mark.component.html',
   styleUrls: ['./mark.component.css']
 })
-export class MarkComponent extends AppComponent{
+export class MarkComponent {
+
+  constructor(private callRegistService: CallRegistService){
+
+  }
   
   optionStatus = false;
+
+  @Output() markEvent = new EventEmitter<Boolean>();
 
   // To count the entered number, to introduce a space at brefore the 4 or after the third digit
   numberCount = 0;
@@ -109,8 +117,23 @@ export class MarkComponent extends AppComponent{
 
   // To make the call 
   calling(element: HTMLParagraphElement) {
-    let number = element.innerHTML;
+    let number = element.innerHTML, 
+    
+    regist: CallRegist;
 
     number = this.removeSpace(number);
+
+
+    if(number === "") {
+      regist = this.callRegistService.getCall()[0];
+
+      this.callRegistService.setCall(regist);
+    } else {
+      regist = new CallRegist(parseInt(number), "", "", "Colombia", -1)
+
+      this.callRegistService.setCall(regist);
+    }
+
+    this.markEvent.emit(true);
   }
 }

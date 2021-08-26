@@ -38,7 +38,8 @@
                     <!-- Area to positionate the main, mark, choose and call component -->
                     <div class="appComponentMidel">
                         <app-main class=""
-                        [mainStatus]="mainStatus"
+                        *ngIf="mainStatus"
+                        (mainEvent)="mainEventCatch($event)"
                         id="appMain"
                         ></app-main>
                     </div>
