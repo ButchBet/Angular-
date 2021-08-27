@@ -7,6 +7,8 @@
     /* --third-color: #8ac2ce; */
     --third-color: #3646bd;
     --fourth-color: rgb(131, 130, 130);
+    --fifth-color: rgb(42, 116, 215);
+    --sixth-color: rgb(32, 33, 37);
     font-family: 'Ubuntu', sans-serif;
     /* font-family: 'Source Sans Pro', sans-serif; */
     color: var(--fourth-color);
