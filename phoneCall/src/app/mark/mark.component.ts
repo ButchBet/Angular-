@@ -128,12 +128,21 @@ export class MarkComponent {
       regist = this.callRegistService.getCall()[0];
 
       this.callRegistService.setCall(regist);
+
+      let newNumber = regist.number;
+
+      element.innerHTML = this.asignSpace(newNumber.toString());
+      
+      // Wait 1 second to cand show the selected number inside the input place
+      setTimeout(()=> {
+        this.markEvent.emit(true)
+      }, 1000);
     } else {
       regist = new CallRegist(parseInt(number), "", "", "Colombia", -1)
 
       this.callRegistService.setCall(regist);
+      
+      this.markEvent.emit(true);
     }
-
-    this.markEvent.emit(true);
   }
 }

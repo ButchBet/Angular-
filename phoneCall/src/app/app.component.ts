@@ -15,6 +15,8 @@ export class AppComponent {
   phoneStatus = false;
   
   callStatus = false;
+
+  firstTime = true;
   
   batteryP = 12;
 
@@ -62,9 +64,11 @@ export class AppComponent {
   changeBackground(elem1: HTMLDivElement) {
     this.timer();
 
-    if(this.phoneStatus === false) {
-      this.mainStatus = true;
-
+    if(this.phoneStatus) {
+      elem1.classList.add("hidden")
+  
+      this.phoneStatus = false;
+     } else {
       elem1.classList.remove("hidden");
   
       // setTimeout(() => {
@@ -78,13 +82,13 @@ export class AppComponent {
       // this.repetition = 2;
     
       this.phoneStatus = true;
+      
+      // Allways being showing main component
+      if(this.firstTime){
+        this.mainStatus = true;
 
-      this.mainStatus = true;
-
-     } else {
-       elem1.classList.add("hidden")
-  
-       this.phoneStatus = false;
+        this.firstTime = false;
+      }
      }
     }
 
