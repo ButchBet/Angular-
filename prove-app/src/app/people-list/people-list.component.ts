@@ -1,51 +1,42 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Person } from './people.model';
+import { Component, OnInit } from '@angular/core';
+import { Person } from '../people.model';
+import { PeopleService } from '../peopleService.service';
 
 @Component({
   selector: 'app-people-list',
   templateUrl: './people-list.component.html',
   styleUrls: ['./people-list.component.css']
 })
-export class PeopleListComponent {
+export class PeopleListComponent implements OnInit{
   title = "People listing";
 
   nameInput: String = "";
 
   lastNameInput: String = "";
 
-  alert: String = ""
+  people: Person[] = [];
 
-  people: Person[] = [new Person("Kevin", "Salazar"),
-                      new Person("Eduar", "Oriz")];
-  
+  constructor(private peopleService: PeopleService) {
+
+  }
+
+  ngOnInit(): void {
+    this.people = this.peopleService.people;
+  }
   
   addPerson(event: Event) {
     if(this.nameInput === "" || this.lastNameInput === "") {
       return;
     } else {
-      const newPerson = new Person(this.nameInput, this.lastNameInput);
+      const newPerson = new Person(this.nameInput, this.lastNameInput); 
 
-      this.people.push(newPerson);
+      this.peopleService.setPerson(newPerson); // Sent a newPerson objec to the PeopleService
 
-      this.nameInput = "", this.lastNameInput = "";
+      this.nameInput = "", this.lastNameInput = "";  // Vecome thei nput strings as empty values
     }
   }
 
-<<<<<<< HEAD
-  @Input() poison: Boolean = true;
-  @Input() love: Boolean = false;
-=======
-  @Input() poison: Boolean;
-  @Input() love: Boolean;
->>>>>>> 842bad682dd0da17ba0270fa526cd59ef278857d
-
-  checkPoisonOrLove() {
-    if(this.poison) {
-      console.log("Poison is: " + this.poison)
-    }
-
-    if(this.love) {
-      console.log("Love is: " + this.love)
-    }
+  personEdit(index: Number) {
+    this.peopleService.greet.emit(index);
   }
 }

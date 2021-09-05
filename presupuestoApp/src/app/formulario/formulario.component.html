@@ -1,0 +1,17 @@
+<form (submit)="f.form.valid && generarDescripcion(tipo.value, descripcion.value, valor.value)" #f="ngForm">
+    <div class="agregar">
+        <div class="agregar_contenedor">
+            <select #tipo class="agregar_tipo" [ngClass]="{redfocus: tipo.value === '-'}">
+                <option value="+" selected>+</option>
+
+                <option value="-">-</option>
+            </select>
+
+            <input  [ngClass]="{redfocus: tipo.value === '-'}" #descripcion type="text" class="agregar_descripcion" placeholder="Agregar Descripción" required>
+
+            <input [ngClass]="{redfocus: tipo.value === '-'}" #valor type="number" class="agregar_valor" placeholder="Valor" min="0" required>
+
+            <button class="agregar_btn"><i  class="ion-ios-checkmark-outline" [ngClass]="{red: tipo.value === '-'}"></i></button>
+        </div>
+    </div>
+  </form>
