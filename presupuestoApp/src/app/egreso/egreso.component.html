@@ -1,0 +1,16 @@
+<div class="egreso">
+    <h2 class="egreso_titulo">Egresos</h2>
+        
+    <div *ngFor="let descripcion of egreso; let i = index">
+        <div class="elemento limpiarEstilos">
+            <div class="elemento_descripcion">{{ descripcion.descripcion }}</div>
+            <div class="right limpiarEstilos">
+                <div class="elemento_valor">- {{ descripcion.valor | currency:"COP":"$":'1.2-2' }}</div>
+                <div class="elemento_porcentaje">{{ obtenerPorcentaje(descripcion.valor) | percent }}</div>
+                <div class="elemento_eliminar">
+                    <button (click)="eliminarDescripcion(i)" class="elemento_eliminar--btn"><i class="ion-ios-close-outline"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
