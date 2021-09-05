@@ -7,9 +7,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SizerComponent {
 
-  @Input() size!: number | string;
+  size = 16;
 
-  @Output() sizechange = new EventEmitter<number>();
+  // @Input() size!: number | string;
+
+  // @Output() sizechange = new EventEmitter<number>();
 
   dec() { this.resize(-1) };
 
@@ -18,6 +20,7 @@ export class SizerComponent {
   resize(delta: number) {
     this.size = Math.min(40, Math.max(8, +this.size + delta));
 
-    this.sizechange.emit(this.size);
+    // this.sizechange.emit(this.size);
   }
+  
 }

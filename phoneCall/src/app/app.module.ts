@@ -10,6 +10,7 @@ import { CallRegistService } from './callRegistService.service';
 import { ContactService } from './contactServeice.service';
 import { StatusService } from './statusService.service';
 import { MovilDataService } from './movilDataService.service';
+import { MainMethodsService } from './mainMethodsService.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MovilDataService } from './movilDataService.service';
   providers: [CallRegistService,
               ContactService,
               StatusService,
-            MovilDataService],
+              MovilDataService,
+              MainMethodsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

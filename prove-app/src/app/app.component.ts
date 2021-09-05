@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PeopleService } from './peopleService.service';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'prove-app';
-<<<<<<< HEAD
+ 
+  fontSizePx = 16;
 
-  fontSizePx = 36;
+  title = 'prove-app';
 
   love = false;
   
-=======
-  love = false;
->>>>>>> 842bad682dd0da17ba0270fa526cd59ef278857d
   poison = true;
+
+  constructor(private peopleService: PeopleService) {
+    this.peopleService.greet.subscribe(
+      (input: Number) => {
+        alert("The selected person's index is " + input);
+      }
+    );
+  }
+
 }

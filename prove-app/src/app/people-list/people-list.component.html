@@ -18,13 +18,16 @@
 
         <div class="col-12">
             <button class="btn btn-primary form-control">Add</button>
-            <button (click)="checkPoisonOrLove()" class="btn btn-primary form-control">Check</button>
+            <!-- <button (click)="checkPoisonOrLove()" class="btn btn-primary form-control">Check</button> -->
         </div>
 
         <div *ngFor="let person of people; let i = index" class="col-6">
-            {{ i + 1 }}: {{ person.name }} {{ person.lastName }}
-        </div>
+            <input
+            type="checkbox"
+            id="editPerson"
+            (click)="personEdit(i + 1)">
 
-        
+            {{ person.name }} {{ person.lastName }}
+        </div>    
     </form>
 </div>

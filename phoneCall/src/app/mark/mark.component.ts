@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CallRegistService } from '../callRegistService.service';
 import { CallRegist } from '../callRegist';
-import { parse } from 'cookie';
+import { MainMethodsService } from '../mainMethodsService.service';
 
 @Component({
   selector: 'app-mark',
@@ -10,9 +10,7 @@ import { parse } from 'cookie';
 })
 export class MarkComponent {
 
-  constructor(private callRegistService: CallRegistService){
-
-  }
+  constructor(private callRegistService: CallRegistService, private mainMethodsService: MainMethodsService){}
   
   optionStatus = false;
 
@@ -35,36 +33,6 @@ export class MarkComponent {
     }
   }
 
-  // Remove the space that always has the number ex: 322 6990080 -> 3226990080
-  removeSpace(number: string): any {
-    let finalString: string ="";
-    
-    for(let i = 0; i < number.length; i++) {
-      if(number[i] === " "){
-        continue;
-      } else {
-        finalString += number[i];
-      }
-    }
-
-    return finalString;
-  }
-
-  // Asign one space to a number
-  asignSpace(newNumber: string): any {
-    let number = "";
-
-    for(let i = 0; i < newNumber.length; i++){
-      if(i  === 3) {
-        number += " " + newNumber[i];
-      } else {
-        number += newNumber[i];
-      }
-    }
-
-    return number;
-  }
-
   // Remove the last number of the input
   removeNumber(element: HTMLParagraphElement) {
     this.numberCount--;
@@ -75,7 +43,7 @@ export class MarkComponent {
       let number = element.innerHTML, newNumber: number;
 
       // Remove the space
-      number = this.removeSpace(number);
+      number = this.mainMethodsService.removeSpace(number);
 
       // Parse it to number
       newNumber = parseInt(number);
@@ -85,9 +53,10 @@ export class MarkComponent {
 
       // Obtein the integer number
       newNumber = Math.floor(newNumber);
+
     
       // Asign the space
-      const finalNumber = this.asignSpace(newNumber.toString());
+      const finalNumber = this.mainMethodsService.asignSpace(newNumber.toString());
 
       // change the value into the paragraph
       if(newNumber === 0) {
@@ -121,19 +90,28 @@ export class MarkComponent {
     
     regist: CallRegist;
 
-    number = this.removeSpace(number);
+    number = this.mainMethodsService.removeSpace(number);
 
 
     if(number === "") {
       regist = this.callRegistService.getCall()[0];
 
       this.callRegistService.setCall(regist);
+
+      let newNumber = regist.number;
+
+      element.innerHTML = this.mainMethodsService.asignSpace(newNumber.toString());
+      
+      // Wait 1 second to cand show the selected number inside the input place
+      setTimeout(()=> {
+        this.markEvent.emit(true)
+      }, 1000);
     } else {
       regist = new CallRegist(parseInt(number), "", "", "Colombia", -1)
 
       this.callRegistService.setCall(regist);
+      
+      this.markEvent.emit(true);
     }
-
-    this.markEvent.emit(true);
   }
 }

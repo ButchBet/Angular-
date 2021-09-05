@@ -10,18 +10,20 @@ import { CallRegist } from './callRegist';
 export class AppComponent {
   
   // statusShow
-  mainStatus: Boolean = false;
+  mainStatus:Boolean = false;
 
-  phoneStatus = false;
+  phoneStatus:Boolean = false; // Control the bachground change
   
-  callStatus = false;
+  callStatus:Boolean = true; // Control the call component posible show
+
+  firstTime:Boolean = true;
   
   batteryP = 12;
 
   // control the phone clock
   date = new Date();
   
-  hour:number;
+  hour:Number;
   
   minutes:any;
 
@@ -34,7 +36,7 @@ export class AppComponent {
 
     this.minutes = this.keepMinutes(date.getMinutes()),
 
-    setInterval(() => {
+    setTimeout(() => {
       this.timer();
     }, 1000);
   }
@@ -62,29 +64,21 @@ export class AppComponent {
   changeBackground(elem1: HTMLDivElement) {
     this.timer();
 
-    if(this.phoneStatus === false) {
-      this.mainStatus = true;
-
+    if(this.phoneStatus) {
+      elem1.classList.add("hidden")
+  
+      this.phoneStatus = false;
+     } else {
       elem1.classList.remove("hidden");
-  
-      // setTimeout(() => {
-      //   elem2.classList.remove("hidden");
-  
-      //   elem1.classList.add("hidden");
-
-      //   this.repetition = 1;
-      // }, 3000);
-  
-      // this.repetition = 2;
     
       this.phoneStatus = true;
+      
+      // Allways being showing main component
+      if(this.firstTime){
+        this.mainStatus = true;
 
-      this.mainStatus = true;
-
-     } else {
-       elem1.classList.add("hidden")
-  
-       this.phoneStatus = false;
+        this.firstTime = false;
+      }
      }
     }
 
