@@ -1,31 +1,26 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CalculatorComponent } from './calculator/calculator.component';
-import { PeopleListComponent } from './people-list/people-list.component';
-import { ResultComponent } from './calculator/result/result.component';
-import { ObtainComponent } from './calculator/obtain/obtain.component';
-import { SizerComponent } from './sizer/sizer.component';
-import { PeopleService } from './peopleService.service';
-import { LogginService } from './logginService.service';
+import { FormsModule } from '@angular/forms';
+import { PersonaComponent } from './persona/persona.component';
+import { FormularioComponent } from './formulario/formulario.component';
+import { LoggingService } from './LoggingService.service';
+import { PersonasService } from './persona.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
-    CalculatorComponent,
-    PeopleListComponent,
-    ResultComponent,
-    ObtainComponent,
-    SizerComponent
+    PersonaComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [PeopleService,
-              LogginService],
+  providers: [LoggingService, PersonasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

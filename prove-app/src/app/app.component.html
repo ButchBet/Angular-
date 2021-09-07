@@ -1,7 +1,15 @@
-<!-- <app-calculator></app-calculator> -->
+<div class="box" id="heading">
+  <h1>{{ titulo }}</h1>
+</div>
+<div class="box">  
+  <app-persona
+    *ngFor="let personaElemento of personas; let i = index"
+    [persona]="personaElemento"
+    [indice]="i"
+  >
+  </app-persona>
+</div>
 
-<app-people-list></app-people-list>
-
-<!-- <app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx"></app-sizer> -->
-<!-- <app-sizer (sizeChange)="fontSizePx"></app-sizer> -->
-<!-- <app-sizer></app-sizer> -->
+<div class="box">
+  <app-formulario></app-formulario>
+</div>
