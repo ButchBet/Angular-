@@ -20,7 +20,7 @@ import { PersonasComponent } from './personas/personas.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [LoggingService, PersonasService],
   bootstrap: [AppComponent]
