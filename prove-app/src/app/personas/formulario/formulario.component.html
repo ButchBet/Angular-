@@ -7,6 +7,8 @@
       placeholder="Nombre"
       [(ngModel)]="nombreInput"
       required="true"
+      minlength="1s"
+      pattern="[^ \t\n\f\r]"
     />
     <input
       type="text"
@@ -15,6 +17,8 @@
       placeholder="Apellido"
       [(ngModel)]="apellidoInput"
       required="true"
+      minlength="1"
+      pattern="[^ \n\f\r\t]"
     />
     <button type="submit" style="cursor: pointer">
       +
