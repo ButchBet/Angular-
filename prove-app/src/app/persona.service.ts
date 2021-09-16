@@ -17,4 +17,22 @@ export class PersonasService {
     this.loggingService.enviaMensajeAConsola('agregamos persona:' + persona.nombre)
     this.personas.push(persona);
   }
+
+  obtenerPersona(indice: number) {
+    let personaObtener: Persona = this.personas[indice];
+
+    return personaObtener;
+  }
+
+  editarPersona(index: number, persona: Persona) {
+    let personaModificar: Persona = this.personas[index];
+
+    personaModificar.nombre = persona.nombre;
+
+    personaModificar.apellido = persona.apellido;
+  }
+
+  eliminarPersona(index: number) {
+    this.personas.splice(index, 1);
+  }
 }
